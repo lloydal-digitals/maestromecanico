@@ -29,6 +29,7 @@
             --text-primary: #ffffff;
             --text-secondary: #d4d4d8;
             --border-color: #3f3f46;
+            --navbar-height: 62px;
         }
 
         html {
@@ -47,6 +48,103 @@
         @font-face {
             font-family: 'Inter';
             font-display: swap;
+        }
+
+        /* ============ STICKY BAR ============ */
+        .sticky-bar {
+            position: sticky;
+            top: 0;
+            z-index: 900;
+            height: var(--navbar-height);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            padding: 0 1.5rem;
+            background: rgba(12, 20, 32, 0.92);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .sticky-brand {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            min-width: 0;
+        }
+
+        .sticky-brand-icon {
+            font-size: 1.35rem;
+            flex-shrink: 0;
+        }
+
+        .sticky-brand-text {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.15;
+            min-width: 0;
+        }
+
+        .sticky-brand-name {
+            font-weight: 800;
+            font-size: 0.95rem;
+            color: var(--text-primary);
+            letter-spacing: -0.2px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .sticky-brand-tag {
+            font-size: 0.72rem;
+            color: var(--accent-yellow);
+            font-weight: 600;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .sticky-cta {
+            flex-shrink: 0;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.65rem 1.35rem;
+            background: linear-gradient(135deg, var(--accent-yellow) 0%, #fbbf24 100%);
+            color: #000;
+            font-weight: 800;
+            font-size: 0.9rem;
+            text-decoration: none;
+            border-radius: 100px;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            box-shadow: 0 4px 14px rgba(250, 204, 21, 0.3);
+        }
+
+        .sticky-cta:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 6px 20px rgba(250, 204, 21, 0.45);
+        }
+
+        @media (max-width: 480px) {
+            .sticky-bar {
+                padding: 0 1rem;
+            }
+
+            .sticky-brand-tag {
+                display: none;
+            }
+
+            .sticky-brand-name {
+                font-size: 0.85rem;
+            }
+
+            .sticky-cta {
+                padding: 0.6rem 1rem;
+                font-size: 0.8rem;
+            }
         }
 
         /* ============ HEADER / HERO ============ */
@@ -1168,11 +1266,15 @@
         /* ============ HERO: LAYOUT DESKTOP CON IMAGEN ============ */
         @media (min-width: 900px) {
             .hero {
-                padding: 5rem 2.5rem 5.5rem;
+                min-height: calc(100vh - var(--navbar-height));
+                display: flex;
+                align-items: center;
+                padding: 3rem 2.5rem;
                 text-align: left;
             }
 
             .hero-container {
+                width: 100%;
                 display: grid;
                 grid-template-columns: 1.05fr 0.95fr;
                 grid-template-areas:
@@ -1901,6 +2003,18 @@
     </style>
 </head>
 <body>
+    <!-- STICKY BAR -->
+    <div class="sticky-bar">
+        <div class="sticky-brand">
+            <span class="sticky-brand-icon" aria-hidden="true">🛠️</span>
+            <span class="sticky-brand-text">
+                <span class="sticky-brand-name">Sistema Diagnóstico Maestro</span>
+                <span class="sticky-brand-tag">Diagnóstico electrónico automotriz</span>
+            </span>
+        </div>
+        <a href="#oferta" class="sticky-cta">Ver oferta ↓</a>
+    </div>
+
     <!-- HERO / HEADER -->
     <section class="hero">
         <div class="hero-container">
@@ -2303,7 +2417,7 @@
     </section>
 
     <!-- CIERRE CON PRICING -->
-    <section class="section pricing-section">
+    <section class="section pricing-section" id="oferta">
         <h2 class="pricing-header">Llevate el Kit de Transformación Completo</h2>
         <p class="pricing-subheader">Manual Rector + los 4 Bonos, todo en un único acceso digital.</p>
 
