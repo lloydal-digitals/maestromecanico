@@ -1,0 +1,1349 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Sistema Diagnóstico Maestro - Domina el diagnóstico electrónico automotriz con nuestro kit metodológico avanzado.">
+    <meta name="theme-color" content="#0f172a">
+    <title>Sistema Diagnóstico Maestro - Domina el Diagnóstico Electrónico Automotriz</title>
+    
+    <!-- Preconnect a Google Fonts para optimizar carga -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Google Fonts con font-display: swap para mejor rendimiento -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --dark-bg: #0f172a;
+            --dark-secondary: #1a2332;
+            --accent-yellow: #facc15;
+            --accent-green: #22c55e;
+            --text-primary: #ffffff;
+            --text-secondary: #d4d4d8;
+            --border-color: #3f3f46;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background-color: var(--dark-bg);
+            color: var(--text-primary);
+            line-height: 1.6;
+            letter-spacing: -0.3px;
+            font-display: swap;
+        }
+        
+        @font-face {
+            font-family: 'Inter';
+            font-display: swap;
+        }
+
+        /* ============ HEADER / HERO ============ */
+        .hero {
+            position: relative;
+            background: linear-gradient(135deg, #0f172a 0%, #1a2332 100%);
+            padding: 3rem 1.5rem 3.5rem;
+            text-align: center;
+            border-bottom: 1px solid var(--border-color);
+            overflow: hidden;
+        }
+
+        .hero::before,
+        .hero::after {
+            content: '';
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(60px);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .hero::before {
+            width: 420px;
+            height: 420px;
+            background: rgba(250, 204, 21, 0.16);
+            top: -180px;
+            left: -140px;
+        }
+
+        .hero::after {
+            width: 380px;
+            height: 380px;
+            background: rgba(34, 197, 94, 0.14);
+            bottom: -160px;
+            right: -120px;
+        }
+
+        .hero-container {
+            position: relative;
+            z-index: 1;
+            max-width: 1180px;
+            margin: 0 auto;
+        }
+
+        .hero-image {
+            margin-top: 2rem;
+        }
+
+        .hero-image-placeholder {
+            width: 100%;
+            max-width: 420px;
+            margin: 0 auto;
+            aspect-ratio: 4 / 3;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 0.6rem;
+            text-align: center;
+            padding: 1.5rem;
+            border-radius: 16px;
+            border: 2px dashed rgba(250, 204, 21, 0.4);
+            background: linear-gradient(135deg, rgba(250, 204, 21, 0.06) 0%, rgba(34, 197, 94, 0.06) 100%);
+            color: var(--text-secondary);
+        }
+
+        .placeholder-icon {
+            font-size: 2.5rem;
+            opacity: 0.8;
+        }
+
+        .placeholder-label {
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            color: var(--text-primary);
+            text-transform: uppercase;
+            font-size: 0.85rem;
+        }
+
+        .placeholder-hint {
+            font-size: 0.75rem;
+            opacity: 0.7;
+            max-width: 240px;
+        }
+
+        .kicker {
+            font-size: 0.875rem;
+            font-weight: 700;
+            color: var(--accent-yellow);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 1.25rem;
+            display: inline-block;
+            padding: 0.6rem 1.1rem;
+            background: rgba(250, 204, 21, 0.1);
+            border-radius: 100px;
+            border: 1px solid rgba(250, 204, 21, 0.35);
+        }
+
+        h1 {
+            font-size: 2.1rem;
+            font-weight: 800;
+            line-height: 1.15;
+            letter-spacing: -0.5px;
+            margin-bottom: 1.15rem;
+            background: linear-gradient(135deg, #facc15 0%, #22c55e 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        h2 {
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 1.25rem;
+            line-height: 1.35;
+        }
+
+        .subtitle {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            opacity: 0.85;
+            margin: 0 0 1.5rem;
+            font-weight: 400;
+            line-height: 1.6;
+        }
+
+        .subtitle-brand {
+            color: var(--accent-yellow);
+            font-weight: 700;
+            letter-spacing: 0.3px;
+        }
+
+        .social-proof {
+            display: flex;
+            align-items: center;
+            gap: 0.85rem;
+            margin: 1.5rem auto;
+            padding: 0.85rem 1.25rem;
+            max-width: 480px;
+            background: rgba(34, 197, 94, 0.08);
+            border: 1px solid rgba(34, 197, 94, 0.25);
+            border-left: 3px solid var(--accent-green);
+            border-radius: 10px;
+            font-size: 0.9rem;
+            color: var(--accent-green);
+            font-weight: 600;
+            line-height: 1.5;
+            text-align: left;
+        }
+
+        .stars {
+            flex-shrink: 0;
+            color: var(--accent-yellow);
+            font-size: 1.15rem;
+            letter-spacing: 1px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1.15rem 2rem;
+            background: linear-gradient(135deg, var(--accent-yellow) 0%, #fbbf24 100%);
+            color: #000;
+            font-weight: 800;
+            font-size: 1.1rem;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            margin-top: 1rem;
+            box-shadow: 0 10px 35px rgba(250, 204, 21, 0.35);
+            width: 100%;
+            max-width: 420px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            animation: ctaPulse 2.4s ease-in-out infinite;
+        }
+
+        @keyframes ctaPulse {
+            0%, 100% {
+                box-shadow: 0 10px 35px rgba(250, 204, 21, 0.35);
+            }
+            50% {
+                box-shadow: 0 10px 45px rgba(250, 204, 21, 0.55);
+            }
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 40px rgba(250, 204, 21, 0.4);
+            animation-play-state: paused;
+        }
+
+        .cta-button:active {
+            transform: translateY(0);
+        }
+
+        .cta-subtext {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            margin-top: 0.75rem;
+            font-weight: 500;
+        }
+
+        /* ============ MATRIZ DE CONTRASTE ============ */
+        .section {
+            padding: 3rem 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .section-title {
+            font-size: 1.75rem;
+            font-weight: 800;
+            margin-bottom: 2rem;
+            text-align: center;
+            color: var(--text-primary);
+        }
+
+        .comparison-grid {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .comparison-card {
+            background: linear-gradient(135deg, #1a2332 0%, #232d3f 100%);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .comparison-card:hover {
+            border-color: var(--accent-yellow);
+            box-shadow: 0 8px 20px rgba(250, 204, 21, 0.1);
+        }
+
+        .card-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+        }
+
+        .card-half {
+            padding: 1.5rem;
+            border-right: 1px solid var(--border-color);
+        }
+
+        .card-half:last-child {
+            border-right: none;
+        }
+
+        .card-half.bad {
+            background: rgba(239, 68, 68, 0.05);
+            border-bottom: 2px solid #ef4444;
+        }
+
+        .card-half.good {
+            background: rgba(34, 197, 94, 0.05);
+            border-bottom: 2px solid #22c55e;
+        }
+
+        .card-label {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .card-half.bad .card-label {
+            color: #ef4444;
+        }
+
+        .card-half.good .card-label {
+            color: #22c55e;
+        }
+
+        .card-label::before {
+            content: '';
+            display: inline-block;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: currentColor;
+        }
+
+        .card-text {
+            font-size: 0.95rem;
+            line-height: 1.5;
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+
+        /* Mobile: Cartas apiladas */
+        @media (max-width: 768px) {
+            .card-row {
+                grid-template-columns: 1fr;
+            }
+
+            .card-half {
+                border-right: none;
+                border-bottom: 1px solid var(--border-color);
+            }
+
+            .card-half.bad {
+                border-bottom: 2px solid #ef4444;
+            }
+
+            .card-half.good {
+                border-bottom: none;
+            }
+        }
+
+        /* ============ EL PROBLEMA REAL ============ */
+        .problem-section {
+            background: rgba(239, 68, 68, 0.08);
+            border-left: 4px solid #ef4444;
+        }
+
+        .problem-section .section-title {
+            color: #ef4444;
+            margin-bottom: 1.5rem;
+        }
+
+        .problem-text {
+            font-size: 1rem;
+            line-height: 1.75;
+            color: var(--text-secondary);
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        /* ============ LA SOLUCIÓN ============ */
+        .solution-section {
+            background: linear-gradient(135deg, rgba(34, 197, 94, 0.08) 0%, rgba(34, 197, 94, 0.04) 100%);
+        }
+
+        .solution-section .section-title {
+            color: var(--accent-green);
+            margin-bottom: 1.5rem;
+        }
+
+        .solution-text {
+            font-size: 1rem;
+            line-height: 1.75;
+            color: var(--text-secondary);
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: left;
+            margin-bottom: 2rem;
+        }
+
+        .features-list {
+            display: grid;
+            gap: 1.5rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .feature-box {
+            background: rgba(34, 197, 94, 0.1);
+            border-left: 4px solid var(--accent-green);
+            padding: 1.5rem;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .feature-box:hover {
+            background: rgba(34, 197, 94, 0.15);
+            transform: translateX(4px);
+        }
+
+        .feature-title {
+            font-weight: 700;
+            color: var(--accent-green);
+            margin-bottom: 0.5rem;
+            font-size: 1.05rem;
+        }
+
+        .feature-description {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* ============ BUNDLE DE OFERTAS ============ */
+        .bundle-section {
+            background: linear-gradient(135deg, rgba(250, 204, 21, 0.08) 0%, rgba(34, 197, 94, 0.04) 100%);
+        }
+
+        .bundle-section .section-title {
+            color: var(--accent-yellow);
+            margin-bottom: 2rem;
+        }
+
+        .bonos-grid {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .bono-card {
+            background: linear-gradient(135deg, #1a2332 0%, #232d3f 100%);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .bono-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent-yellow) 0%, var(--accent-green) 100%);
+        }
+
+        .bono-card:hover {
+            border-color: var(--accent-yellow);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 30px rgba(250, 204, 21, 0.15);
+        }
+
+        .bono-icon {
+            font-size: 1.5rem;
+            margin-right: 0.75rem;
+        }
+
+        .bono-title {
+            font-weight: 700;
+            color: var(--accent-yellow);
+            margin-bottom: 0.75rem;
+            font-size: 1.05rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .bono-description {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .bono-value {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--accent-green);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .value-regular {
+            color: #999;
+            text-decoration: line-through;
+            font-size: 0.8rem;
+        }
+
+        /* ============ PRICING ============ */
+        .pricing-section {
+            background: linear-gradient(135deg, #1a2332 0%, #232d3f 100%);
+            text-align: center;
+        }
+
+        .pricing-header {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 2rem;
+        }
+
+        .pricing-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: rgba(34, 197, 94, 0.08);
+            border: 2px solid var(--accent-green);
+            border-radius: 12px;
+            padding: 2rem 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .price-tag {
+            margin-bottom: 1.5rem;
+        }
+
+        .price-label {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .price-old {
+            font-size: 1.5rem;
+            color: #999;
+            text-decoration: line-through;
+            margin-right: 1rem;
+        }
+
+        .price-new {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--accent-green);
+            display: inline-block;
+        }
+
+        .price-currency {
+            font-size: 1.25rem;
+            vertical-align: super;
+        }
+
+        .price-note {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-top: 1.5rem;
+            font-weight: 500;
+        }
+
+        .cta-button.primary {
+            max-width: 100%;
+            margin-top: 2rem;
+            background: linear-gradient(135deg, var(--accent-green) 0%, #16a34a 100%);
+            box-shadow: 0 10px 30px rgba(34, 197, 94, 0.3);
+        }
+
+        .cta-button.primary:hover {
+            box-shadow: 0 15px 40px rgba(34, 197, 94, 0.4);
+        }
+
+        .cta-button.primary:active {
+            transform: scale(0.98);
+        }
+
+        /* ============ FOOTER ============ */
+        footer {
+            background: #000;
+            color: var(--text-secondary);
+            text-align: center;
+            padding: 2rem 1.5rem;
+            font-size: 0.85rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        footer a {
+            color: var(--accent-yellow);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        footer a:hover {
+            color: var(--accent-green);
+        }
+
+        /* ============ MODAL EMERGENTE ============ */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .modal-content {
+            background: linear-gradient(135deg, #1a2332 0%, #232d3f 100%);
+            border: 2px solid var(--accent-yellow);
+            border-radius: 12px;
+            padding: 2rem;
+            max-width: 500px;
+            width: 90%;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.9);
+            animation: slideUp 0.4s ease;
+            position: relative;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            background: none;
+            border: none;
+            color: var(--text-secondary);
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: color 0.3s ease;
+            padding: 0;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-close:hover {
+            color: var(--accent-yellow);
+        }
+
+        .modal-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .modal-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .modal-title {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--accent-yellow);
+            margin-bottom: 1rem;
+        }
+
+        .modal-description {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .modal-form {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .form-group input {
+            padding: 0.875rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            color: var(--text-primary);
+            font-family: inherit;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input::placeholder {
+            color: var(--text-secondary);
+        }
+
+        .form-group input:focus {
+            outline: none;
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--accent-yellow);
+            box-shadow: 0 0 0 3px rgba(250, 204, 21, 0.1);
+        }
+
+        .form-submit {
+            padding: 1rem;
+            background: linear-gradient(135deg, var(--accent-yellow) 0%, #fbbf24 100%);
+            color: #000;
+            font-weight: 700;
+            font-size: 1rem;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-top: 0.5rem;
+        }
+
+        .form-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(250, 204, 21, 0.3);
+        }
+
+        .form-submit:active {
+            transform: translateY(0);
+        }
+
+        /* ============ HERO: LAYOUT DESKTOP CON IMAGEN ============ */
+        @media (min-width: 900px) {
+            .hero {
+                padding: 5rem 2.5rem 5.5rem;
+                text-align: left;
+            }
+
+            .hero-container {
+                display: grid;
+                grid-template-columns: 1.05fr 0.95fr;
+                gap: 3.5rem;
+                align-items: center;
+            }
+
+            .hero-content {
+                text-align: left;
+            }
+
+            .social-proof,
+            .cta-button {
+                margin-left: 0;
+                margin-right: 0;
+            }
+
+            h1 {
+                font-size: 3.1rem;
+            }
+
+            h2 {
+                font-size: 1.6rem;
+            }
+
+            .subtitle {
+                font-size: 0.95rem;
+                max-width: 560px;
+            }
+
+            .hero-image {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin-top: 0;
+            }
+
+            .hero-image-placeholder {
+                max-width: 100%;
+                aspect-ratio: 4 / 5;
+                padding: 2rem;
+            }
+
+            .placeholder-icon {
+                font-size: 3rem;
+            }
+
+            .placeholder-label {
+                font-size: 0.9rem;
+            }
+
+            .placeholder-hint {
+                font-size: 0.8rem;
+            }
+        }
+
+        /* ============ RESPONSIVE ============ */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.5rem;
+            }
+
+            h2 {
+                font-size: 1.05rem;
+            }
+
+            .section-title {
+                font-size: 1.35rem;
+            }
+
+            .hero {
+                padding: 1.5rem 1rem 2rem;
+            }
+
+            .section {
+                padding: 2rem 1rem;
+            }
+
+            .modal-content {
+                max-width: 90%;
+                padding: 1.5rem;
+            }
+
+            .price-new {
+                font-size: 2rem;
+            }
+
+            .cta-button {
+                padding: 0.9rem 1.5rem;
+                font-size: 1rem;
+            }
+        }
+
+        /* ============ LAZY LOADING ANIMATIONS ============ */
+        .comparison-card,
+        .bono-card,
+        .feature-box {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .comparison-card.visible,
+        .bono-card.visible,
+        .feature-box.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.25rem;
+            }
+
+            h2 {
+                font-size: 0.95rem;
+            }
+
+            .section-title {
+                font-size: 1.15rem;
+            }
+
+            .price-new {
+                font-size: 1.75rem;
+            }
+
+            .price-old {
+                font-size: 1rem;
+                margin-right: 0.5rem;
+            }
+
+            .cta-button {
+                padding: 0.85rem 1rem;
+                font-size: 0.9rem;
+            }
+
+            .modal-title {
+                font-size: 1.25rem;
+            }
+
+            .modal-description {
+                font-size: 0.85rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- HERO / HEADER -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="kicker">Para Mecánicos, Electricistas Automotrices y Aprendices</div>
+                <h1>CONVERTITE EN UN MAESTRO DEL DIAGNÓSTICO ELECTRÓNICO</h1>
+                <h2>Dominá el scanner, interpretá esquemas eléctricos y tomá trabajos mejor pagos</h2>
+                <p class="subtitle"><span class="subtitle-brand">SISTEMA DIAGNÓSTICO MAESTRO.</span> Del cambio de aceite básico a la inyección avanzada: Dominá el sistema completo sin adivinar fallas.</p>
+
+                <div class="social-proof">
+                    <span class="stars">★★★★★</span>
+                    <span>(4.9/5 estrellas) Más de 4.850 profesionales ya lo usan en sus talleres</span>
+                </div>
+
+                <button class="cta-button" onclick="handleCTAClick()">EMPEZAR HOY MISMO ↓</button>
+                <p class="cta-subtext">Descarga inmediata • Acceso permanente • Sin mensualidad</p>
+            </div>
+
+            <!-- Placeholder de imagen del producto: reemplazar por foto/mockup del kit cuando esté listo -->
+            <div class="hero-image">
+                <div class="hero-image-placeholder">
+                    <span class="placeholder-icon">🖼️</span>
+                    <span class="placeholder-label">Imagen / mockup del producto</span>
+                    <span class="placeholder-hint">Reemplazar este bloque por la foto o render final del kit</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MATRIZ DE CONTRASTE -->
+    <section class="section">
+        <h2 class="section-title">La Transformación Que Necesitás</h2>
+        <div class="comparison-grid">
+            <!-- Card 1 -->
+            <div class="comparison-card">
+                <div class="card-row">
+                    <div class="card-half bad">
+                        <div class="card-label">❌ Hoy te pasa esto</div>
+                        <p class="card-text">Rechazás autos modernos o los derivás a otro taller porque te da inseguridad usar el scanner.</p>
+                    </div>
+                    <div class="card-half good">
+                        <div class="card-label">✓ Con Diagnóstico Maestro</div>
+                        <p class="card-text">Usás la lógica detrás del scanner y configurás los parámetros con total autonomía técnica.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="comparison-card">
+                <div class="card-row">
+                    <div class="card-half bad">
+                        <div class="card-label">❌ Hoy te pasa esto</div>
+                        <p class="card-text">Tenés pánico de conectar mal un pin o diagnosticar mal y terminar quemando una computadora (ECU) cara de un cliente.</p>
+                    </div>
+                    <div class="card-half good">
+                        <div class="card-label">✓ Con Diagnóstico Maestro</div>
+                        <p class="card-text">Medís con seguridad absoluta sabiendo interpretar los voltajes y las señales multiplexadas de forma segura.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="comparison-card">
+                <div class="card-row">
+                    <div class="card-half bad">
+                        <div class="card-label">❌ Hoy te pasa esto</div>
+                        <p class="card-text">Adivinás los defectos cambiando piezas al voleo, haciéndote perder tiempo, dinero de tu bolsillo y autoridad frente al cliente.</p>
+                    </div>
+                    <div class="card-half good">
+                        <div class="card-label">✓ Con Diagnóstico Maestro</div>
+                        <p class="card-text">Encontrás la falla real en minutos, aislando el problema de raíz antes de tocar o desarmar un solo cable.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="comparison-card">
+                <div class="card-row">
+                    <div class="card-half bad">
+                        <div class="card-label">❌ Hoy te pasa esto</div>
+                        <p class="card-text">Seguís estancado cobrando barato por reparaciones básicas de mecánica tradicional pesada.</p>
+                    </div>
+                    <div class="card-half good">
+                        <div class="card-label">✓ Con Diagnóstico Maestro</div>
+                        <p class="card-text">Saltás al escalón profesional más alto, cobrando caro por tu criterio y tu conocimiento de software.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EL PROBLEMA REAL -->
+    <section class="section problem-section">
+        <h2 class="section-title">El Problema Real No Sos Vos, Es Cómo Te Enseñaron</h2>
+        <p class="problem-text">
+            Conectás el scanner, te tira un código de error genérico y no sabés por dónde empezar. Borrás la falla, el cliente se va, y a las dos cuadras se le vuelve a prender la luz del tablero. Acabás de regalarle tu autoridad técnica a otro colega que sí sabe qué cable medir. La mayoría aprende con videos aislados de YouTube que sirven para un modelo de auto específico, pero cuando te entra una marca diferente al taller, quedás expuesto. En la mecánica moderna, la inseguridad y la falta de planos se pagan caras: un diagnóstico errado te cuesta miles de dólares en componentes destruidos o clientes furiosos.
+        </p>
+    </section>
+
+    <!-- LA SOLUCIÓN -->
+    <section class="section solution-section">
+        <h2 class="section-title">Ahí Nace el Sistema Diagnóstico Maestro</h2>
+        <p class="solution-text">
+            Un kit metodológico avanzado 100% digital diseñado de forma práctica para ayudarte a:
+        </p>
+        
+        <div class="features-list">
+            <div class="feature-box">
+                <div class="feature-title">📊 Interpretar Esquemas Eléctricos de Cualquier Marca</div>
+                <div class="feature-description">
+                    Sin depender de terceros. Aprende la lógica universal detrás de los planos, aplicable a cualquier fabricante.
+                </div>
+            </div>
+
+            <div class="feature-box">
+                <div class="feature-title">🔬 Leer e Interpretar Ondas de Osciloscopio Paso a Paso</div>
+                <div class="feature-description">
+                    Para identificar sensores defectuosos al instante. Domina las señales analógicas y digitales como un profesional certificado.
+                </div>
+            </div>
+
+            <div class="feature-box">
+                <div class="feature-title">⚡ Protocolo de 4 Pasos Rápido para Inyección Electrónica</div>
+                <div class="feature-description">
+                    Resuelve problemas "cabulosos" sin perder horas adivinando. Una metodología probada en miles de casos reales.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BUNDLE DE OFERTAS -->
+    <section class="section bundle-section">
+        <h2 class="section-title">Si Accedés Hoy con Precio de Prelanzamiento, Te Llevás Estos 4 Bonos de Regalo</h2>
+        
+        <div class="bonos-grid">
+            <div class="bono-card">
+                <div class="bono-title">
+                    <span class="bono-icon">📦</span>
+                    BONO 1: Biblioteca Digital de Diagramas Eléctricos de ECU
+                </div>
+                <p class="bono-description">
+                    Los planos de las computadoras y redes multiplexadas más comunes del mercado. Sabé exactamente qué pin testear sin volverte loco buscando en internet.
+                </p>
+                <div class="bono-value">
+                    <span class="value-regular">Valor regular: $35 USD</span>
+                    <span>HOY: GRATIS</span>
+                </div>
+            </div>
+
+            <div class="bono-card">
+                <div class="bono-title">
+                    <span class="bono-icon">📦</span>
+                    BONO 2: Guía de Interpretación de Ondas con Osciloscopio
+                </div>
+                <p class="bono-description">
+                    El mapa táctico visual para conectar el osciloscopio y saber al milisegundo si la señal analógica o digital del sensor es la correcta.
+                </p>
+                <div class="bono-value">
+                    <span class="value-regular">Valor regular: $19 USD</span>
+                    <span>HOY: GRATIS</span>
+                </div>
+            </div>
+
+            <div class="bono-card">
+                <div class="bono-title">
+                    <span class="bono-icon">📦</span>
+                    BONO 3: Plantilla de Presupuesto para Reparaciones Electrónicas
+                </div>
+                <p class="bono-description">
+                    Herramienta inteligente en Excel. Ponés el tiempo de diagnóstico y te calcula cuánto debés cobrar exactamente por tu conocimiento técnico, blindando tu ganancia.
+                </p>
+                <div class="bono-value">
+                    <span class="value-regular">Valor regular: $15 USD</span>
+                    <span>HOY: GRATIS</span>
+                </div>
+            </div>
+
+            <div class="bono-card">
+                <div class="bono-title">
+                    <span class="bono-icon">📦</span>
+                    BONO 4: Certificado Profesional Digital
+                </div>
+                <p class="bono-description">
+                    Un diploma digital de alta calidad imprimible listo para colocar en la pared de tu taller o compartir en tus redes. Generá confianza inmediata en tus nuevos clientes.
+                </p>
+                <div class="bono-value">
+                    <span class="value-regular">Sin costo adicional</span>
+                    <span>HOY: INCLUIDO</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CIERRE CON PRICING -->
+    <section class="section pricing-section">
+        <h2 class="pricing-header">Llevate el Kit de Transformación Completo<br>(Manual Rector + 4 Bonos)</h2>
+        
+        <div class="pricing-container">
+            <div class="price-tag">
+                <div class="price-label">PRECIO HABITUAL</div>
+                <span class="price-old">$47 USD</span>
+                <span class="price-label" style="margin-left: 1rem;">ACCESO DE PRUEBA POR SOLO</span>
+                <div style="margin-top: 0.5rem;">
+                    <span class="price-new"><span class="price-currency">$</span>14.99</span>
+                </div>
+            </div>
+            <p class="price-note">Un único pago de por vida, sin mensualidades ni cargos ocultos.</p>
+        </div>
+
+        <button class="cta-button primary" onclick="handleCTAClick()">👉 QUIERO MI ACCESO AL SISTEMA DIAGNÓSTICO MAESTRO</button>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>© 2024 Sistema Diagnóstico Maestro. Todos los derechos reservados.</p>
+        <p style="margin-top: 1rem; font-size: 0.75rem;">
+            Este sitio no es afiliado con Meta Platforms, Inc. La política de privacidad y términos de uso se aplican.
+        </p>
+    </footer>
+
+    <!-- Meta Pixel Base (Deferred para no bloquear carga inicial) -->
+    <script defer>
+        window.addEventListener('load', function() {
+            !function(f,b,e,v,n,t,s)
+            {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+            n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+            if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+            n.queue=[];t=b.createElement(e);t.async=!0;
+            t.src=v;s=b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t,s)}(window, document,'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+            if(typeof fbq !== 'undefined') {
+                fbq('init', 'ID_DE_TU_PIXEL');
+                fbq('track', 'PageView');
+            }
+        });
+    </script>
+    <noscript><img height="1" width="1" loading="lazy" style="display:none" src="https://www.facebook.com/tr?id=ID_DE_TU_PIXEL&ev=PageView&noscript=1" /></noscript>
+
+    <!-- MODAL DE CUPOS AGOTADOS -->
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal()">✕</button>
+            
+            <div class="modal-header">
+                <div class="modal-icon">🔴</div>
+                <h3 class="modal-title">¡Cupos Promocionales Agotados!</h3>
+            </div>
+
+            <p class="modal-description">
+                Cupos promocionales agotados por hoy debido a la alta demanda en redes. Registra tu correo y WhatsApp abajo para congelar el precio de lanzamiento de <strong>$14.99 USD</strong> y darte prioridad absoluta en las próximas 24 horas apenas abramos los accesos del nuevo lote.
+            </p>
+
+            <form class="modal-form" onsubmit="handleWaitlistSubmit(event)">
+                <div class="form-group">
+                    <label for="waitlistEmail">Email *</label>
+                    <input type="email" id="waitlistEmail" placeholder="tu@correo.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="waitlistWhatsapp">WhatsApp *</label>
+                    <input type="tel" id="waitlistWhatsapp" placeholder="+54 9 123 456789" required>
+                </div>
+
+                <button type="submit" class="form-submit">Registrarme para la Lista de Espera</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Variables globales - Lazy initialization
+        let modalOverlay = null;
+        let isModalInitialized = false;
+
+        /**
+         * Inicializa el modal de forma lazy (solo cuando se necesita)
+         */
+        function initializeModal() {
+            if (isModalInitialized) return;
+            
+            modalOverlay = document.getElementById('modalOverlay');
+            
+            if (!modalOverlay) return;
+            
+            // Cierra al hacer clic fuera del contenido
+            modalOverlay.addEventListener('click', function(event) {
+                if (event.target === modalOverlay) {
+                    closeModal();
+                }
+            }, { once: false });
+
+            // Soporte para tecla ESC
+            document.addEventListener('keydown', function(event) {
+                if (event.key === 'Escape' && modalOverlay.classList.contains('active')) {
+                    closeModal();
+                }
+            });
+            
+            isModalInitialized = true;
+        }
+
+        /**
+         * Manejo de CTAs - Pixel de Meta + Modal de Cupos Agotados
+         */
+        function handleCTAClick() {
+            // Inicializa el modal si no está inicializado
+            initializeModal();
+            
+            // Dispara evento de Meta Pixel (si está disponible)
+            if (typeof fbq !== 'undefined') {
+                fbq('track', 'InitiateCheckout');
+            } else {
+                // Intenta cargar el pixel si no está disponible
+                console.log('Pixel de Meta no disponible aún, agendando...');
+            }
+
+            // Abre el modal con slight delay para mejor UX
+            setTimeout(() => {
+                openModal();
+            }, 200);
+        }
+
+        /**
+         * Abre el modal emergente
+         */
+        function openModal() {
+            if (!modalOverlay) return;
+            modalOverlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        /**
+         * Cierra el modal emergente
+         */
+        function closeModal() {
+            if (!modalOverlay) return;
+            modalOverlay.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        /**
+         * Maneja el envío del formulario de lista de espera
+         */
+        function handleWaitlistSubmit(event) {
+            event.preventDefault();
+
+            const email = document.getElementById('waitlistEmail').value;
+            const whatsapp = document.getElementById('waitlistWhatsapp').value;
+
+            // Logging para debugging (remover en producción)
+            console.log('Datos registrados:', { email, whatsapp, timestamp: new Date().toISOString() });
+
+            // Enviar a backend (ejemplo con fetch):
+            // fetch('/api/waitlist', {
+            //     method: 'POST',
+            //     headers: { 'Content-Type': 'application/json' },
+            //     body: JSON.stringify({ email, whatsapp })
+            // }).catch(err => console.error('Error:', err));
+
+            // Track adicional en Meta
+            if (typeof fbq !== 'undefined') {
+                fbq('track', 'AddToCart', {
+                    value: 14.99,
+                    currency: 'USD',
+                    content_name: 'Sistema Diagnóstico Maestro'
+                });
+            }
+
+            // Feedback visual
+            const submitBtn = event.target.querySelector('.form-submit');
+            const originalText = submitBtn.textContent;
+            submitBtn.textContent = '✓ ¡Registrado! Revisar email en 5 min.';
+            submitBtn.style.opacity = '0.7';
+            submitBtn.disabled = true;
+
+            // Cierra el modal después de 2 segundos
+            setTimeout(() => {
+                closeModal();
+                // Resetea el formulario
+                document.querySelector('.modal-form').reset();
+                submitBtn.textContent = originalText;
+                submitBtn.style.opacity = '1';
+                submitBtn.disabled = false;
+            }, 2000);
+        }
+
+        /**
+         * Intersection Observer para lazy loading de elementos
+         * (animaciones, tracking, etc.)
+         */
+        function initializeIntersectionObserver() {
+            if (!('IntersectionObserver' in window)) return;
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        // Puedes agregar más lógica aquí si necesitas
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            // Observa cards de comparación y bonos
+            document.querySelectorAll('.comparison-card, .bono-card, .feature-box').forEach((el) => {
+                observer.observe(el);
+            });
+        }
+
+        /**
+         * Inicialización al cargar el documento
+         */
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', function() {
+                initializeIntersectionObserver();
+            });
+        } else {
+            // Si el DOM ya está cargado (scripts defer)
+            initializeIntersectionObserver();
+        }
+    </script>
+</body>
+</html>
