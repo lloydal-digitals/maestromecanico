@@ -611,17 +611,21 @@
 
         .bonos-grid {
             display: grid;
+            grid-template-columns: repeat(4, 1fr);
             gap: 1.5rem;
+            max-width: 1150px;
+            margin: 0 auto;
         }
 
         .bono-card {
             background: linear-gradient(135deg, #1a2332 0%, #232d3f 100%);
             border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 1.5rem;
+            border-radius: 12px;
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
+            display: flex;
+            flex-direction: column;
         }
 
         .bono-card::before {
@@ -632,6 +636,7 @@
             right: 0;
             height: 3px;
             background: linear-gradient(90deg, var(--accent-yellow) 0%, var(--accent-green) 100%);
+            z-index: 2;
         }
 
         .bono-card:hover {
@@ -640,40 +645,114 @@
             box-shadow: 0 12px 30px rgba(250, 204, 21, 0.15);
         }
 
+        .bono-image-placeholder {
+            aspect-ratio: 4 / 3;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 0.4rem;
+            text-align: center;
+            padding: 1rem;
+            border-bottom: 2px dashed rgba(250, 204, 21, 0.35);
+            background: linear-gradient(135deg, rgba(250, 204, 21, 0.1) 0%, rgba(34, 197, 94, 0.05) 100%);
+            color: var(--text-secondary);
+        }
+
+        .bono-badge {
+            position: absolute;
+            top: 0.75rem;
+            right: 0.75rem;
+            z-index: 2;
+            background: var(--accent-green);
+            color: #000;
+            font-size: 0.65rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            padding: 0.3rem 0.6rem;
+            border-radius: 100px;
+        }
+
+        .bono-body {
+            padding: 1.35rem 1.25rem 1.5rem;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+
         .bono-icon {
-            font-size: 1.5rem;
-            margin-right: 0.75rem;
+            font-size: 1.25rem;
+            margin-right: 0.5rem;
         }
 
         .bono-title {
             font-weight: 700;
             color: var(--accent-yellow);
-            margin-bottom: 0.75rem;
-            font-size: 1.05rem;
+            margin-bottom: 0.6rem;
+            font-size: 0.98rem;
+            line-height: 1.35;
             display: flex;
-            align-items: center;
+            align-items: flex-start;
         }
 
         .bono-description {
             color: var(--text-secondary);
-            font-size: 0.95rem;
-            line-height: 1.6;
+            font-size: 0.88rem;
+            line-height: 1.55;
             margin-bottom: 1rem;
+            flex: 1;
         }
 
         .bono-value {
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             font-weight: 600;
             color: var(--accent-green);
             display: flex;
             justify-content: space-between;
             align-items: center;
+            margin-top: 0.85rem;
+            padding: 0.7rem 0.85rem;
+            border-radius: 10px;
+            background: rgba(34, 197, 94, 0.08);
+            border: 1px solid rgba(34, 197, 94, 0.25);
+            gap: 0.5rem;
+        }
+
+        .bono-value > span:last-child {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+            background: linear-gradient(135deg, var(--accent-green) 0%, #16a34a 100%);
+            color: #04140a;
+            font-weight: 800;
+            font-size: 0.78rem;
+            text-transform: uppercase;
+            letter-spacing: 0.4px;
+            padding: 0.35rem 0.7rem;
+            border-radius: 100px;
+            box-shadow: 0 4px 12px rgba(34, 197, 94, 0.25);
+            white-space: nowrap;
         }
 
         .value-regular {
-            color: #999;
+            color: #8b93a1;
             text-decoration: line-through;
-            font-size: 0.8rem;
+            text-decoration-color: rgba(239, 68, 68, 0.6);
+            font-size: 0.78rem;
+            font-weight: 500;
+        }
+
+        @media (max-width: 900px) {
+            .bonos-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 520px) {
+            .bonos-grid {
+                grid-template-columns: 1fr;
+            }
         }
 
         /* ============ PRICING ============ */
@@ -683,62 +762,217 @@
         }
 
         .pricing-header {
-            font-size: 1.25rem;
-            font-weight: 700;
+            font-size: 1.6rem;
+            font-weight: 800;
             color: var(--text-primary);
-            margin-bottom: 2rem;
+            margin-bottom: 0.5rem;
+            line-height: 1.25;
         }
 
-        .pricing-container {
-            max-width: 600px;
+        .pricing-subheader {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            margin-bottom: 2.25rem;
+        }
+
+        .pricing-card {
+            max-width: 960px;
             margin: 0 auto;
-            background: rgba(34, 197, 94, 0.08);
+            display: grid;
+            grid-template-columns: 0.85fr 1.15fr;
+            background: linear-gradient(160deg, #101a2c 0%, #0c1420 100%);
             border: 2px solid var(--accent-green);
-            border-radius: 12px;
-            padding: 2rem 1.5rem;
-            margin-bottom: 2rem;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 0 45px rgba(34, 197, 94, 0.15);
+            text-align: left;
         }
 
-        .price-tag {
+        .pricing-media {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1.75rem;
+            background:
+                radial-gradient(circle at 30% 20%, rgba(250, 204, 21, 0.14), transparent 55%),
+                radial-gradient(circle at 80% 90%, rgba(34, 197, 94, 0.14), transparent 55%),
+                linear-gradient(135deg, #131d2e 0%, #0c1420 100%);
+            border-right: 1px solid var(--border-color);
+        }
+
+        .pricing-image-placeholder {
+            width: 100%;
+            aspect-ratio: 3 / 4;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 0.6rem;
+            text-align: center;
+            padding: 1.5rem;
+            border-radius: 16px;
+            border: 2px dashed rgba(34, 197, 94, 0.4);
+            background: rgba(34, 197, 94, 0.05);
+            color: var(--text-secondary);
+        }
+
+        .pricing-body {
+            padding: 2rem 2rem 2.25rem;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .discount-flag {
+            align-self: flex-start;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            background: linear-gradient(135deg, #facc15 0%, #fbbf24 100%);
+            color: #000;
+            font-weight: 800;
+            font-size: 0.78rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            padding: 0.4rem 0.85rem;
+            border-radius: 100px;
+            margin-bottom: 1.25rem;
+        }
+
+        .includes-title {
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            color: var(--text-secondary);
+            margin-bottom: 0.85rem;
+        }
+
+        .includes-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
             margin-bottom: 1.5rem;
         }
 
-        .price-label {
-            font-size: 0.9rem;
+        .includes-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.6rem;
+            font-size: 0.92rem;
+            color: var(--text-primary);
+            line-height: 1.4;
+        }
+
+        .includes-list li .ic {
+            flex-shrink: 0;
+            color: var(--accent-green);
+            font-weight: 800;
+            margin-top: 0.1rem;
+        }
+
+        .includes-list li .val {
+            margin-left: auto;
+            color: #8b93a1;
+            text-decoration: line-through;
+            font-size: 0.82rem;
+            white-space: nowrap;
+        }
+
+        .price-box {
+            background: rgba(34, 197, 94, 0.08);
+            border: 1px solid rgba(34, 197, 94, 0.3);
+            border-radius: 14px;
+            padding: 1.35rem 1.5rem;
+            margin-top: auto;
+        }
+
+        .price-total-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 0.75rem;
+            margin-bottom: 0.85rem;
+            border-bottom: 1px dashed rgba(34, 197, 94, 0.3);
+            font-size: 0.85rem;
             color: var(--text-secondary);
-            margin-bottom: 0.5rem;
-            font-weight: 500;
+        }
+
+        .price-total-row .strike {
+            color: #8b93a1;
+            text-decoration: line-through;
+            font-weight: 600;
+        }
+
+        .price-label {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.35rem;
         }
 
         .price-old {
-            font-size: 1.5rem;
-            color: #999;
+            font-size: 1.25rem;
+            color: #8b93a1;
             text-decoration: line-through;
-            margin-right: 1rem;
+            margin-right: 0.85rem;
         }
 
         .price-new {
-            font-size: 2.5rem;
+            font-size: 2.9rem;
             font-weight: 800;
             color: var(--accent-green);
             display: inline-block;
+            line-height: 1;
         }
 
         .price-currency {
-            font-size: 1.25rem;
+            font-size: 1.4rem;
             vertical-align: super;
+            font-weight: 700;
         }
 
         .price-note {
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             color: var(--text-secondary);
-            margin-top: 1.5rem;
+            margin-top: 0.85rem;
             font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        @media (max-width: 768px) {
+            .pricing-card {
+                grid-template-columns: 1fr;
+            }
+
+            .pricing-media {
+                border-right: none;
+                border-bottom: 1px solid var(--border-color);
+            }
+
+            .pricing-image-placeholder {
+                max-width: 260px;
+                margin: 0 auto;
+                aspect-ratio: 4 / 3;
+            }
+
+            .pricing-body {
+                padding: 1.75rem 1.5rem 2rem;
+            }
+
+            .price-new {
+                font-size: 2.4rem;
+            }
         }
 
         .cta-button.primary {
             max-width: 100%;
-            margin-top: 2rem;
+            margin-top: 1.5rem;
             background: linear-gradient(135deg, var(--accent-green) 0%, #16a34a 100%);
             box-shadow: 0 10px 30px rgba(34, 197, 94, 0.3);
         }
@@ -1884,58 +2118,94 @@
         
         <div class="bonos-grid">
             <div class="bono-card">
-                <div class="bono-title">
-                    <span class="bono-icon">📦</span>
-                    BONO 1: Biblioteca Digital de Diagramas Eléctricos de ECU
+                <span class="bono-badge">Gratis</span>
+                <!-- Imagen: portada de la biblioteca de diagramas de ECU / pantalla con planos de computadoras -->
+                <div class="bono-image-placeholder">
+                    <span class="placeholder-icon" aria-hidden="true">🗂️</span>
+                    <span class="placeholder-label">Imagen Bono 1</span>
+                    <span class="placeholder-hint">Portada de la biblioteca de diagramas eléctricos de ECU</span>
                 </div>
-                <p class="bono-description">
-                    Los planos de las computadoras y redes multiplexadas más comunes del mercado. Sabé exactamente qué pin testear sin volverte loco buscando en internet.
-                </p>
-                <div class="bono-value">
-                    <span class="value-regular">Valor regular: $35 USD</span>
-                    <span>HOY: GRATIS</span>
-                </div>
-            </div>
-
-            <div class="bono-card">
-                <div class="bono-title">
-                    <span class="bono-icon">📦</span>
-                    BONO 2: Guía de Interpretación de Ondas con Osciloscopio
-                </div>
-                <p class="bono-description">
-                    El mapa táctico visual para conectar el osciloscopio y saber al milisegundo si la señal analógica o digital del sensor es la correcta.
-                </p>
-                <div class="bono-value">
-                    <span class="value-regular">Valor regular: $19 USD</span>
-                    <span>HOY: GRATIS</span>
+                <div class="bono-body">
+                    <div class="bono-title">
+                        <span class="bono-icon">📦</span>
+                        BONO 1: Biblioteca Digital de Diagramas Eléctricos de ECU
+                    </div>
+                    <p class="bono-description">
+                        Los planos de las computadoras y redes multiplexadas más comunes del mercado. Sabé exactamente qué pin testear sin volverte loco buscando en internet.
+                    </p>
+                    <div class="bono-value">
+                        <span class="value-regular">Valor: $35 USD</span>
+                        <span>HOY: GRATIS</span>
+                    </div>
                 </div>
             </div>
 
             <div class="bono-card">
-                <div class="bono-title">
-                    <span class="bono-icon">📦</span>
-                    BONO 3: Plantilla de Presupuesto para Reparaciones Electrónicas
+                <span class="bono-badge">Gratis</span>
+                <!-- Imagen: guía de ondas del osciloscopio / pantalla con señal analógica -->
+                <div class="bono-image-placeholder">
+                    <span class="placeholder-icon" aria-hidden="true">📈</span>
+                    <span class="placeholder-label">Imagen Bono 2</span>
+                    <span class="placeholder-hint">Pantalla de osciloscopio mostrando una onda de señal de sensor</span>
                 </div>
-                <p class="bono-description">
-                    Herramienta inteligente en Excel. Ponés el tiempo de diagnóstico y te calcula cuánto debés cobrar exactamente por tu conocimiento técnico, blindando tu ganancia.
-                </p>
-                <div class="bono-value">
-                    <span class="value-regular">Valor regular: $15 USD</span>
-                    <span>HOY: GRATIS</span>
+                <div class="bono-body">
+                    <div class="bono-title">
+                        <span class="bono-icon">📦</span>
+                        BONO 2: Guía de Interpretación de Ondas con Osciloscopio
+                    </div>
+                    <p class="bono-description">
+                        El mapa táctico visual para conectar el osciloscopio y saber al milisegundo si la señal analógica o digital del sensor es la correcta.
+                    </p>
+                    <div class="bono-value">
+                        <span class="value-regular">Valor: $19 USD</span>
+                        <span>HOY: GRATIS</span>
+                    </div>
                 </div>
             </div>
 
             <div class="bono-card">
-                <div class="bono-title">
-                    <span class="bono-icon">📦</span>
-                    BONO 4: Certificado Profesional Digital
+                <span class="bono-badge">Gratis</span>
+                <!-- Imagen: planilla de presupuesto en Excel abierta -->
+                <div class="bono-image-placeholder">
+                    <span class="placeholder-icon" aria-hidden="true">📊</span>
+                    <span class="placeholder-label">Imagen Bono 3</span>
+                    <span class="placeholder-hint">Planilla de presupuesto en Excel abierta en una notebook</span>
                 </div>
-                <p class="bono-description">
-                    Un diploma digital de alta calidad imprimible listo para colocar en la pared de tu taller o compartir en tus redes. Generá confianza inmediata en tus nuevos clientes.
-                </p>
-                <div class="bono-value">
-                    <span class="value-regular">Sin costo adicional</span>
-                    <span>HOY: INCLUIDO</span>
+                <div class="bono-body">
+                    <div class="bono-title">
+                        <span class="bono-icon">📦</span>
+                        BONO 3: Plantilla de Presupuesto para Reparaciones Electrónicas
+                    </div>
+                    <p class="bono-description">
+                        Herramienta inteligente en Excel. Ponés el tiempo de diagnóstico y te calcula cuánto debés cobrar exactamente por tu conocimiento técnico, blindando tu ganancia.
+                    </p>
+                    <div class="bono-value">
+                        <span class="value-regular">Valor: $15 USD</span>
+                        <span>HOY: GRATIS</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bono-card">
+                <span class="bono-badge">Incluido</span>
+                <!-- Imagen: certificado / diploma profesional digital -->
+                <div class="bono-image-placeholder">
+                    <span class="placeholder-icon" aria-hidden="true">🏅</span>
+                    <span class="placeholder-label">Imagen Bono 4</span>
+                    <span class="placeholder-hint">Diploma / certificado profesional digital enmarcado</span>
+                </div>
+                <div class="bono-body">
+                    <div class="bono-title">
+                        <span class="bono-icon">📦</span>
+                        BONO 4: Certificado Profesional Digital
+                    </div>
+                    <p class="bono-description">
+                        Un diploma digital de alta calidad imprimible listo para colocar en la pared de tu taller o compartir en tus redes. Generá confianza inmediata en tus nuevos clientes.
+                    </p>
+                    <div class="bono-value">
+                        <span class="value-regular">Sin costo adicional</span>
+                        <span>HOY: INCLUIDO</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -2034,21 +2304,47 @@
 
     <!-- CIERRE CON PRICING -->
     <section class="section pricing-section">
-        <h2 class="pricing-header">Llevate el Kit de Transformación Completo<br>(Manual Rector + 4 Bonos)</h2>
-        
-        <div class="pricing-container">
-            <div class="price-tag">
-                <div class="price-label">PRECIO HABITUAL</div>
-                <span class="price-old">$47 USD</span>
-                <span class="price-label" style="margin-left: 1rem;">ACCESO DE PRUEBA POR SOLO</span>
-                <div style="margin-top: 0.5rem;">
-                    <span class="price-new"><span class="price-currency">$</span>14.99</span>
+        <h2 class="pricing-header">Llevate el Kit de Transformación Completo</h2>
+        <p class="pricing-subheader">Manual Rector + los 4 Bonos, todo en un único acceso digital.</p>
+
+        <div class="pricing-card">
+            <!-- Imagen: mockup / render del kit completo (manual + bonos) sobre fondo oscuro -->
+            <div class="pricing-media">
+                <div class="pricing-image-placeholder">
+                    <span class="placeholder-icon" aria-hidden="true">📚</span>
+                    <span class="placeholder-label">Imagen del Kit</span>
+                    <span class="placeholder-hint">Mockup / render del kit completo: Manual Rector + los 4 bonos apilados o en pantalla</span>
                 </div>
             </div>
-            <p class="price-note">Un único pago de por vida, sin mensualidades ni cargos ocultos.</p>
-        </div>
 
-        <button class="cta-button primary" onclick="handleCTAClick()">👉 QUIERO MI ACCESO AL SISTEMA DIAGNÓSTICO MAESTRO</button>
+            <div class="pricing-body">
+                <span class="discount-flag">🔥 Oferta de prelanzamiento · 68% OFF</span>
+
+                <p class="includes-title">Todo lo que incluye tu acceso</p>
+                <ul class="includes-list">
+                    <li><span class="ic">✓</span> Manual Rector Sistema Diagnóstico Maestro <span class="val">$47</span></li>
+                    <li><span class="ic">✓</span> Bono 1: Biblioteca de Diagramas de ECU <span class="val">$35</span></li>
+                    <li><span class="ic">✓</span> Bono 2: Guía de Ondas con Osciloscopio <span class="val">$19</span></li>
+                    <li><span class="ic">✓</span> Bono 3: Plantilla de Presupuesto <span class="val">$15</span></li>
+                    <li><span class="ic">✓</span> Bono 4: Certificado Profesional Digital <span class="val">Gratis</span></li>
+                </ul>
+
+                <div class="price-box">
+                    <div class="price-total-row">
+                        <span>Valor total del kit</span>
+                        <span class="strike">$116 USD</span>
+                    </div>
+                    <div class="price-label">Acceso de prelanzamiento por solo</div>
+                    <div>
+                        <span class="price-old">$47</span>
+                        <span class="price-new"><span class="price-currency">$</span>14.99</span>
+                    </div>
+                    <p class="price-note"><span>♾️</span> Un único pago de por vida, sin mensualidades ni cargos ocultos.</p>
+                </div>
+
+                <button class="cta-button primary" onclick="handleCTAClick()">👉 QUIERO MI ACCESO AHORA</button>
+            </div>
+        </div>
     </section>
 
     <!-- GARANTÍA -->
