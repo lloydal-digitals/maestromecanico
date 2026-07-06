@@ -470,54 +470,133 @@
         /* ============ LA SOLUCIÓN ============ */
         .solution-section {
             background: linear-gradient(135deg, rgba(34, 197, 94, 0.08) 0%, rgba(34, 197, 94, 0.04) 100%);
+            text-align: center;
+        }
+
+        .solution-section .kicker {
+            color: var(--accent-green);
+            background: rgba(34, 197, 94, 0.1);
+            border-color: rgba(34, 197, 94, 0.35);
         }
 
         .solution-section .section-title {
-            color: var(--accent-green);
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .solution-section .section-title .accent {
+            background: linear-gradient(135deg, var(--accent-green) 0%, #4ade80 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .solution-text {
             font-size: 1rem;
             line-height: 1.75;
             color: var(--text-secondary);
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: left;
-            margin-bottom: 2rem;
+            max-width: 700px;
+            margin: 0 auto 2.5rem;
+            text-align: center;
         }
 
         .features-list {
             display: grid;
-            gap: 1.5rem;
-            max-width: 800px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.25rem;
+            max-width: 1000px;
             margin: 0 auto;
+            text-align: left;
         }
 
         .feature-box {
-            background: rgba(34, 197, 94, 0.1);
-            border-left: 4px solid var(--accent-green);
+            display: flex;
+            flex-direction: column;
+            gap: 0.85rem;
+            background: rgba(34, 197, 94, 0.08);
+            border: 1px solid rgba(34, 197, 94, 0.25);
             padding: 1.5rem;
-            border-radius: 4px;
+            border-radius: 12px;
             transition: all 0.3s ease;
         }
 
         .feature-box:hover {
+            background: rgba(34, 197, 94, 0.14);
+            border-color: var(--accent-green);
+            transform: translateY(-4px);
+        }
+
+        .feature-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
             background: rgba(34, 197, 94, 0.15);
-            transform: translateX(4px);
+            font-size: 1.4rem;
         }
 
         .feature-title {
             font-weight: 700;
             color: var(--accent-green);
-            margin-bottom: 0.5rem;
             font-size: 1.05rem;
+            line-height: 1.3;
         }
 
         .feature-description {
             color: var(--text-secondary);
             font-size: 0.95rem;
             line-height: 1.6;
+        }
+
+        /* Galería de imágenes (placeholders para fotos/IA) */
+        .solution-gallery {
+            max-width: 1000px;
+            margin: 2.75rem auto 0;
+        }
+
+        .solution-gallery-title {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 1.25rem;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.25rem;
+        }
+
+        .gallery-placeholder {
+            aspect-ratio: 3 / 4;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            text-align: center;
+            padding: 1.25rem;
+            border-radius: 14px;
+            border: 2px dashed rgba(34, 197, 94, 0.4);
+            background: linear-gradient(135deg, rgba(34, 197, 94, 0.1) 0%, rgba(34, 197, 94, 0.02) 100%);
+            color: var(--text-secondary);
+        }
+
+        @media (max-width: 768px) {
+            .features-list {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
         }
 
         /* ============ BUNDLE DE OFERTAS ============ */
@@ -1000,6 +1079,530 @@
             }
         }
 
+        /* ============ BANNER DE FRASE POTENTE ============ */
+        .statement-section {
+            background: linear-gradient(135deg, #0c1420 0%, #131d2e 100%);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .statement-section::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(circle at 15% 20%, rgba(250, 204, 21, 0.12), transparent 45%),
+                radial-gradient(circle at 85% 80%, rgba(34, 197, 94, 0.12), transparent 45%);
+            pointer-events: none;
+        }
+
+        .statement-inner {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .statement-eyebrow {
+            display: inline-block;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--accent-green);
+            margin-bottom: 1.25rem;
+        }
+
+        .statement-title {
+            font-size: 2rem;
+            font-weight: 800;
+            line-height: 1.2;
+            letter-spacing: -0.5px;
+            color: var(--text-primary);
+        }
+
+        .statement-title .hl {
+            background: linear-gradient(135deg, #facc15 0%, #22c55e 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .statement-sub {
+            margin-top: 1.5rem;
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+            max-width: 640px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.7;
+        }
+
+        /* ============ LO QUE TE LLEVÁS (beneficios con imagen) ============ */
+        .benefits-section {
+            background: var(--dark-bg);
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .benefit-card {
+            display: flex;
+            flex-direction: column;
+            background: linear-gradient(135deg, #1a2332 0%, #131d2e 100%);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--accent-green);
+        }
+
+        .benefit-image-placeholder {
+            aspect-ratio: 16 / 10;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            text-align: center;
+            padding: 1.25rem;
+            border-bottom: 2px dashed rgba(34, 197, 94, 0.35);
+            background: linear-gradient(135deg, rgba(34, 197, 94, 0.1) 0%, rgba(250, 204, 21, 0.05) 100%);
+            color: var(--text-secondary);
+        }
+
+        .benefit-body {
+            padding: 1.35rem 1.5rem 1.6rem;
+        }
+
+        .benefit-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 0.6rem;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .benefit-title .check {
+            color: var(--accent-green);
+        }
+
+        .benefit-desc {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* ============ STATS / PRUEBA SOCIAL EN VIVO ============ */
+        .stats-bar {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+            max-width: 900px;
+            margin: 2.5rem auto 0;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 1.25rem 0.75rem;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+        }
+
+        .stat-number {
+            font-size: 1.75rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #facc15 0%, #22c55e 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.1;
+        }
+
+        .stat-label {
+            font-size: 0.78rem;
+            color: var(--text-secondary);
+            margin-top: 0.35rem;
+            line-height: 1.35;
+        }
+
+        /* ============ TESTIMONIOS ============ */
+        .testimonials-section {
+            background: linear-gradient(135deg, #131d2e 0%, #0f172a 100%);
+        }
+
+        .rating-summary {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.4rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .rating-summary .big-score {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--accent-yellow);
+            line-height: 1;
+        }
+
+        .rating-summary .big-stars {
+            color: var(--accent-yellow);
+            font-size: 1.4rem;
+            letter-spacing: 3px;
+        }
+
+        .rating-summary .rating-caption {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.25rem;
+            max-width: 1050px;
+            margin: 0 auto;
+        }
+
+        .testimonial-card {
+            background: linear-gradient(135deg, #1a2332 0%, #1e2839 100%);
+            border: 1px solid var(--border-color);
+            border-radius: 14px;
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.85rem;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--accent-yellow);
+        }
+
+        .testimonial-stars {
+            color: var(--accent-yellow);
+            font-size: 1rem;
+            letter-spacing: 1px;
+        }
+
+        .testimonial-text {
+            font-size: 0.95rem;
+            color: var(--text-primary);
+            line-height: 1.6;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-top: auto;
+            padding-top: 0.5rem;
+        }
+
+        .testimonial-avatar {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 1rem;
+            color: #000;
+            background: linear-gradient(135deg, var(--accent-yellow) 0%, var(--accent-green) 100%);
+            flex-shrink: 0;
+        }
+
+        .testimonial-name {
+            font-weight: 700;
+            color: var(--text-primary);
+            font-size: 0.9rem;
+        }
+
+        .testimonial-role {
+            font-size: 0.78rem;
+            color: var(--text-secondary);
+        }
+
+        .verified-badge {
+            font-size: 0.72rem;
+            color: var(--accent-green);
+            font-weight: 600;
+        }
+
+        /* ============ GARANTÍA ============ */
+        .guarantee-section {
+            background: var(--dark-bg);
+        }
+
+        .guarantee-card {
+            max-width: 780px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 1.75rem;
+            align-items: center;
+            background: linear-gradient(135deg, rgba(34, 197, 94, 0.1) 0%, rgba(34, 197, 94, 0.03) 100%);
+            border: 2px solid var(--accent-green);
+            border-radius: 20px;
+            padding: 2rem;
+        }
+
+        .guarantee-seal {
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: radial-gradient(circle, rgba(34, 197, 94, 0.25) 0%, rgba(34, 197, 94, 0.08) 100%);
+            border: 3px solid var(--accent-green);
+            flex-shrink: 0;
+        }
+
+        .guarantee-seal .seal-num {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--accent-green);
+            line-height: 1;
+        }
+
+        .guarantee-seal .seal-txt {
+            font-size: 0.7rem;
+            font-weight: 700;
+            color: var(--accent-green);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .guarantee-title {
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: var(--text-primary);
+            margin-bottom: 0.6rem;
+        }
+
+        .guarantee-text {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.65;
+        }
+
+        /* ============ FAQ ============ */
+        .faq-section {
+            background: linear-gradient(135deg, #131d2e 0%, #0f172a 100%);
+        }
+
+        .faq-list {
+            max-width: 760px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 0.85rem;
+        }
+
+        .faq-item {
+            background: #1a2332;
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: border-color 0.3s ease;
+        }
+
+        .faq-item[open] {
+            border-color: var(--accent-yellow);
+        }
+
+        .faq-item summary {
+            list-style: none;
+            cursor: pointer;
+            padding: 1.15rem 1.35rem;
+            font-weight: 700;
+            font-size: 0.98rem;
+            color: var(--text-primary);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .faq-item summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .faq-item summary::after {
+            content: '+';
+            font-size: 1.5rem;
+            font-weight: 400;
+            color: var(--accent-yellow);
+            flex-shrink: 0;
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item[open] summary::after {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            padding: 0 1.35rem 1.25rem;
+            font-size: 0.92rem;
+            color: var(--text-secondary);
+            line-height: 1.65;
+        }
+
+        /* ============ CTA FINAL CON URGENCIA ============ */
+        .final-cta-section {
+            background: linear-gradient(135deg, #0c1420 0%, #131d2e 100%);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .final-cta-section::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(circle at 50% 0%, rgba(250, 204, 21, 0.15), transparent 55%);
+            pointer-events: none;
+        }
+
+        .final-cta-inner {
+            position: relative;
+            z-index: 1;
+            max-width: 720px;
+            margin: 0 auto;
+        }
+
+        .urgency-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(239, 68, 68, 0.15);
+            border: 1px solid rgba(239, 68, 68, 0.4);
+            color: #f87171;
+            font-weight: 700;
+            font-size: 0.82rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            padding: 0.55rem 1.1rem;
+            border-radius: 100px;
+            margin-bottom: 1.5rem;
+        }
+
+        .urgency-dot {
+            width: 9px;
+            height: 9px;
+            border-radius: 50%;
+            background: #ef4444;
+            animation: pulseDot 1.4s ease-in-out infinite;
+        }
+
+        @keyframes pulseDot {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.4; transform: scale(0.7); }
+        }
+
+        .final-cta-title {
+            font-size: 1.9rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .final-cta-text {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+
+        .trust-badges {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.25rem;
+            margin-top: 1.75rem;
+        }
+
+        .trust-badge {
+            display: flex;
+            align-items: center;
+            gap: 0.45rem;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        .trust-badge span {
+            color: var(--accent-green);
+        }
+
+        /* ============ RESPONSIVE NUEVAS SECCIONES ============ */
+        @media (max-width: 900px) {
+            .testimonials-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .statement-title {
+                font-size: 1.5rem;
+            }
+
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-bar {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .guarantee-card {
+                grid-template-columns: 1fr;
+                text-align: center;
+                justify-items: center;
+                padding: 1.5rem;
+            }
+
+            .final-cta-title {
+                font-size: 1.45rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .statement-title {
+                font-size: 1.3rem;
+            }
+
+            .stat-number {
+                font-size: 1.4rem;
+            }
+        }
+
         /* ============ LAZY LOADING ANIMATIONS ============ */
         .transformation-table,
         .bono-card,
@@ -1154,31 +1757,123 @@
 
     <!-- LA SOLUCIÓN -->
     <section class="section solution-section">
-        <h2 class="section-title">Ahí Nace el Sistema Diagnóstico Maestro</h2>
+        <span class="kicker">LA SOLUCIÓN</span>
+        <h2 class="section-title">Ahí Nace el <span class="accent">Sistema Diagnóstico Maestro</span></h2>
         <p class="solution-text">
             Un kit metodológico avanzado 100% digital diseñado de forma práctica para ayudarte a:
         </p>
-        
+
         <div class="features-list">
             <div class="feature-box">
-                <div class="feature-title">📊 Interpretar Esquemas Eléctricos de Cualquier Marca</div>
+                <span class="feature-icon" aria-hidden="true">📊</span>
+                <div class="feature-title">Interpretar Esquemas Eléctricos de Cualquier Marca</div>
                 <div class="feature-description">
                     Sin depender de terceros. Aprende la lógica universal detrás de los planos, aplicable a cualquier fabricante.
                 </div>
             </div>
 
             <div class="feature-box">
-                <div class="feature-title">🔬 Leer e Interpretar Ondas de Osciloscopio Paso a Paso</div>
+                <span class="feature-icon" aria-hidden="true">🔬</span>
+                <div class="feature-title">Leer e Interpretar Ondas de Osciloscopio Paso a Paso</div>
                 <div class="feature-description">
                     Para identificar sensores defectuosos al instante. Domina las señales analógicas y digitales como un profesional certificado.
                 </div>
             </div>
 
             <div class="feature-box">
-                <div class="feature-title">⚡ Protocolo de 4 Pasos Rápido para Inyección Electrónica</div>
+                <span class="feature-icon" aria-hidden="true">⚡</span>
+                <div class="feature-title">Protocolo de 4 Pasos Rápido para Inyección Electrónica</div>
                 <div class="feature-description">
                     Resuelve problemas "cabulosos" sin perder horas adivinando. Una metodología probada en miles de casos reales.
                 </div>
+            </div>
+        </div>
+
+        <div class="solution-gallery">
+            <p class="solution-gallery-title">Así se estudia el Sistema Diagnóstico Maestro</p>
+            <div class="gallery-grid">
+                <div class="gallery-placeholder">
+                    <span class="placeholder-icon" aria-hidden="true">🖼️</span>
+                    <span class="placeholder-label">Imagen IA</span>
+                    <span class="placeholder-hint">Mecánico leyendo el manual digital en una tablet, en el taller</span>
+                </div>
+                <div class="gallery-placeholder">
+                    <span class="placeholder-icon" aria-hidden="true">🖼️</span>
+                    <span class="placeholder-label">Imagen IA</span>
+                    <span class="placeholder-hint">Persona interpretando un diagrama eléctrico en la notebook</span>
+                </div>
+                <div class="gallery-placeholder">
+                    <span class="placeholder-icon" aria-hidden="true">🖼️</span>
+                    <span class="placeholder-label">Imagen IA</span>
+                    <span class="placeholder-hint">Mecánico tomando notas junto al osciloscopio con el kit abierto</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BANNER DE FRASE POTENTE -->
+    <section class="section statement-section">
+        <div class="statement-inner">
+            <span class="statement-eyebrow">La diferencia entre adivinar y saber</span>
+            <h2 class="statement-title">UN MECÁNICO EXPERTO <span class="hl">RESUELVE LA FALLA ANTES DE DESARMAR EL MOTOR.</span></h2>
+            <p class="statement-sub">
+                No cambia piezas al voleo ni reza para que funcione. Lee la señal, interpreta el dato y ataca el problema de raíz. Ese criterio técnico es exactamente lo que te llevás con el Sistema Diagnóstico Maestro.
+            </p>
+        </div>
+    </section>
+
+    <!-- LO QUE TE LLEVÁS: BENEFICIOS CON IMAGEN -->
+    <section class="section benefits-section">
+        <h2 class="section-title">Lo Que Te Llevás Con el Sistema Diagnóstico Maestro</h2>
+
+        <div class="benefits-grid">
+            <div class="benefit-card">
+                <!-- Imagen: mecánico midiendo con seguridad en el vano motor -->
+                <div class="benefit-image-placeholder">
+                    <span class="placeholder-icon" aria-hidden="true">🔧</span>
+                    <span class="placeholder-label">Imagen IA / Foto</span>
+                    <span class="placeholder-hint">Mecánico midiendo un sensor con multímetro en el motor, con actitud de seguridad y control</span>
+                </div>
+                <div class="benefit-body">
+                    <div class="benefit-title"><span class="check">✓</span> Más seguridad frente a cualquier falla</div>
+                    <p class="benefit-desc">
+                        Dejás de tenerle miedo a los autos modernos. Sabés qué medir, dónde y qué significa cada lectura, sin importar la marca que entre al taller.
+                    </p>
+                </div>
+            </div>
+
+            <div class="benefit-card">
+                <!-- Imagen: mecánico entregando el auto y dándole la mano al cliente -->
+                <div class="benefit-image-placeholder">
+                    <span class="placeholder-icon" aria-hidden="true">🤝</span>
+                    <span class="placeholder-label">Imagen IA / Foto</span>
+                    <span class="placeholder-hint">Mecánico dándole la mano a un cliente satisfecho frente al auto reparado</span>
+                </div>
+                <div class="benefit-body">
+                    <div class="benefit-title"><span class="check">✓</span> Más autoridad y trabajos mejor pagos</div>
+                    <p class="benefit-desc">
+                        Cobrás por tu criterio, no por adivinar. Encarás diagnósticos que antes rechazabas y te posicionás como el especialista de tu zona.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="stats-bar">
+            <div class="stat-item">
+                <div class="stat-number">+4.850</div>
+                <div class="stat-label">Profesionales usándolo</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">4.9/5</div>
+                <div class="stat-label">Calificación promedio</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">100%</div>
+                <div class="stat-label">Digital y descargable</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">24/7</div>
+                <div class="stat-label">Acceso de por vida</div>
             </div>
         </div>
     </section>
@@ -1246,6 +1941,97 @@
         </div>
     </section>
 
+    <!-- TESTIMONIOS -->
+    <section class="section testimonials-section">
+        <h2 class="section-title">Lo Que Dicen Otros Profesionales</h2>
+
+        <div class="rating-summary">
+            <span class="big-score">4.9/5</span>
+            <span class="big-stars">★★★★★</span>
+            <span class="rating-caption">Más de 4.850 mecánicos ya aplican este criterio en sus talleres</span>
+        </div>
+
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <span class="testimonial-stars">★★★★★</span>
+                <p class="testimonial-text">"Posta que me cambió la forma de laburar. Antes conectaba el scanner y adivinaba, ahora entiendo qué me está diciendo cada señal. Encaré fallas que antes derivaba."</p>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">M</div>
+                    <div>
+                        <div class="testimonial-name">Martín G.</div>
+                        <div class="testimonial-role">Taller mecánico · Córdoba</div>
+                        <div class="verified-badge">✓ Compra verificada</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial-card">
+                <span class="testimonial-stars">★★★★★</span>
+                <p class="testimonial-text">"Lo de las ondas del osciloscopio es un caño. Detecté un sensor de cigüeñal que venía loco hace días. Está explicado como si te lo contara un compañero de laburo."</p>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">D</div>
+                    <div>
+                        <div class="testimonial-name">Diego P.</div>
+                        <div class="testimonial-role">Electricidad automotriz · Rosario</div>
+                        <div class="verified-badge">✓ Compra verificada</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial-card">
+                <span class="testimonial-stars">★★★★★</span>
+                <p class="testimonial-text">"Los bonos solos ya valen más que lo que pagué. La plantilla de presupuesto me ordenó los números, antes tiraba precios al voleo y perdía plata."</p>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">S</div>
+                    <div>
+                        <div class="testimonial-name">Sebastián R.</div>
+                        <div class="testimonial-role">Taller propio · Mendoza</div>
+                        <div class="verified-badge">✓ Compra verificada</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial-card">
+                <span class="testimonial-stars">★★★★★</span>
+                <p class="testimonial-text">"Soy técnico hace 12 años y siempre se aprende algo. El protocolo de 4 pasos para inyección lo uso todos los días, me ahorra horas de desarmar al pedo."</p>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">L</div>
+                    <div>
+                        <div class="testimonial-name">Luis A.</div>
+                        <div class="testimonial-role">Inyección electrónica · La Plata</div>
+                        <div class="verified-badge">✓ Compra verificada</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial-card">
+                <span class="testimonial-stars">★★★★★</span>
+                <p class="testimonial-text">"Re directo al grano, nada de vueltas teóricas al pedo. Los diagramas de ECU están claritos y ya no dependo de buscar el pin en foros a la madrugada."</p>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">F</div>
+                    <div>
+                        <div class="testimonial-name">Fernando T.</div>
+                        <div class="testimonial-role">Mecánico multimarca · Tucumán</div>
+                        <div class="verified-badge">✓ Compra verificada</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial-card">
+                <span class="testimonial-stars">★★★★★</span>
+                <p class="testimonial-text">"Lo arranqué a leer un domingo y no lo solté. Ahora los autos modernos no me asustan más. Empecé a cobrar el diagnóstico como corresponde."</p>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">N</div>
+                    <div>
+                        <div class="testimonial-name">Nicolás B.</div>
+                        <div class="testimonial-role">Aprendiz avanzado · Santa Fe</div>
+                        <div class="verified-badge">✓ Compra verificada</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- CIERRE CON PRICING -->
     <section class="section pricing-section">
         <h2 class="pricing-header">Llevate el Kit de Transformación Completo<br>(Manual Rector + 4 Bonos)</h2>
@@ -1263,6 +2049,67 @@
         </div>
 
         <button class="cta-button primary" onclick="handleCTAClick()">👉 QUIERO MI ACCESO AL SISTEMA DIAGNÓSTICO MAESTRO</button>
+    </section>
+
+    <!-- GARANTÍA -->
+    <section class="section guarantee-section">
+        <div class="guarantee-card">
+            <div class="guarantee-seal">
+                <span class="seal-num">7</span>
+                <span class="seal-txt">Días de<br>garantía</span>
+            </div>
+            <div>
+                <h3 class="guarantee-title">Garantía de satisfacción o te devolvemos tu dinero</h3>
+                <p class="guarantee-text">
+                    Accedé hoy, revisá el manual completo y todos los bonos con total tranquilidad. Si en 7 días sentís que el Sistema Diagnóstico Maestro no es para vos, nos escribís y te devolvemos el 100% de tu inversión. Sin vueltas, sin letra chica. El riesgo lo asumimos nosotros.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section faq-section">
+        <h2 class="section-title">Preguntas Frecuentes</h2>
+        <div class="faq-list">
+            <details class="faq-item">
+                <summary>¿En qué formato lo recibo?</summary>
+                <div class="faq-answer">Es 100% digital. Apenas confirmás el pago accedés a la descarga inmediata del manual y todos los bonos en PDF. Lo podés ver desde el celular, la tablet, la notebook o imprimirlo para tenerlo en el taller.</div>
+            </details>
+            <details class="faq-item">
+                <summary>¿Necesito conocimientos previos de electrónica?</summary>
+                <div class="faq-answer">No. Está pensado tanto para el que recién arranca como para el técnico con años de experiencia. Empezamos desde la lógica básica del diagnóstico y avanzamos paso a paso hasta la inyección electrónica y las señales multiplexadas.</div>
+            </details>
+            <details class="faq-item">
+                <summary>¿Sirve para cualquier marca de auto?</summary>
+                <div class="faq-answer">Sí. El sistema te enseña la lógica universal detrás de los esquemas eléctricos y las señales, no un modelo puntual. Aprendés a interpretar cualquier fabricante, y la biblioteca de diagramas de ECU cubre las redes más comunes del mercado.</div>
+            </details>
+            <details class="faq-item">
+                <summary>¿El pago es un único cargo o una mensualidad?</summary>
+                <div class="faq-answer">Un único pago de por vida. Sin mensualidades, sin cargos ocultos ni renovaciones. Pagás una vez y el acceso es permanente, incluyendo las actualizaciones del material.</div>
+            </details>
+            <details class="faq-item">
+                <summary>¿Qué pasa si no me sirve?</summary>
+                <div class="faq-answer">Tenés 7 días de garantía total. Si no es lo que esperabas, nos escribís y te devolvemos el 100% de tu dinero sin hacerte preguntas.</div>
+            </details>
+        </div>
+    </section>
+
+    <!-- CTA FINAL CON URGENCIA -->
+    <section class="section final-cta-section">
+        <div class="final-cta-inner">
+            <span class="urgency-badge"><span class="urgency-dot"></span> Precio de prelanzamiento por tiempo limitado</span>
+            <h2 class="final-cta-title">No Vas a Encontrar Este Precio Más Adelante</h2>
+            <p class="final-cta-text">
+                Cada día que seguís adivinando fallas es tiempo, dinero y clientes que perdés. Hoy podés dar el salto al diagnóstico profesional por menos de lo que sale una herramienta, con garantía total y acceso de por vida.
+            </p>
+            <button class="cta-button primary" onclick="handleCTAClick()">SÍ, QUIERO EMPEZAR HOY MISMO ↓</button>
+            <div class="trust-badges">
+                <div class="trust-badge"><span>🔒</span> Pago 100% seguro</div>
+                <div class="trust-badge"><span>⚡</span> Acceso inmediato</div>
+                <div class="trust-badge"><span>♾️</span> Acceso de por vida</div>
+                <div class="trust-badge"><span>✓</span> Garantía de 7 días</div>
+            </div>
+        </div>
     </section>
 
     <!-- FOOTER -->
