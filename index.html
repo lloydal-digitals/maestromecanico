@@ -139,6 +139,7 @@
             color: var(--accent-yellow);
             text-transform: uppercase;
             letter-spacing: 1.5px;
+            line-height: 1.4;
             margin-bottom: 1.25rem;
             display: inline-block;
             padding: 0.6rem 1.1rem;
@@ -184,8 +185,8 @@
 
         .social-proof {
             display: flex;
-            align-items: center;
-            gap: 0.85rem;
+            align-items: flex-start;
+            gap: 0.75rem;
             margin: 1.5rem auto;
             padding: 0.85rem 1.25rem;
             max-width: 480px;
@@ -202,9 +203,15 @@
 
         .stars {
             flex-shrink: 0;
+            padding-top: 0.15rem;
             color: var(--accent-yellow);
             font-size: 1.15rem;
             letter-spacing: 1px;
+        }
+
+        .rating-score {
+            color: var(--accent-yellow);
+            font-weight: 700;
         }
 
         .cta-button {
@@ -268,101 +275,109 @@
             color: var(--text-primary);
         }
 
-        .comparison-grid {
-            display: grid;
-            gap: 1.5rem;
+        .transformation-table {
+            max-width: 900px;
+            margin: 0 auto;
+            background: linear-gradient(160deg, #101a2c 0%, #0c1420 100%);
+            border: 2px solid var(--accent-yellow);
+            border-radius: 20px;
+            box-shadow: 0 0 35px rgba(250, 204, 21, 0.12);
+            padding: 1.75rem;
+            transition: box-shadow 0.3s ease;
         }
 
-        .comparison-card {
-            background: linear-gradient(135deg, #1a2332 0%, #232d3f 100%);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            overflow: hidden;
-            transition: all 0.3s ease;
-        }
-
-        .comparison-card:hover {
-            border-color: var(--accent-yellow);
-            box-shadow: 0 8px 20px rgba(250, 204, 21, 0.1);
-        }
-
-        .card-row {
+        .tt-header {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 0;
+            gap: 1rem;
+            margin-bottom: 1.25rem;
         }
 
-        .card-half {
-            padding: 1.5rem;
-            border-right: 1px solid var(--border-color);
-        }
-
-        .card-half:last-child {
-            border-right: none;
-        }
-
-        .card-half.bad {
-            background: rgba(239, 68, 68, 0.05);
-            border-bottom: 2px solid #ef4444;
-        }
-
-        .card-half.good {
-            background: rgba(34, 197, 94, 0.05);
-            border-bottom: 2px solid #22c55e;
-        }
-
-        .card-label {
-            font-size: 0.75rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 0.75rem;
+        .tt-header-pill {
             display: flex;
             align-items: center;
-            gap: 0.5rem;
+            justify-content: center;
+            text-align: center;
+            padding: 0.85rem 1rem;
+            border-radius: 999px;
+            font-weight: 800;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
-        .card-half.bad .card-label {
-            color: #ef4444;
+        .tt-header-pill.bad {
+            background: rgba(236, 72, 153, 0.12);
+            border: 2px solid #ec4899;
+            color: #ec4899;
         }
 
-        .card-half.good .card-label {
-            color: #22c55e;
+        .tt-header-pill.good {
+            background: rgba(250, 204, 21, 0.08);
+            border: 2px solid var(--accent-yellow);
+            color: var(--accent-yellow);
         }
 
-        .card-label::before {
-            content: '';
-            display: inline-block;
-            width: 6px;
-            height: 6px;
-            border-radius: 50%;
-            background: currentColor;
+        .tt-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            padding: 1.15rem 0;
+            border-bottom: 1px solid var(--border-color);
         }
 
-        .card-text {
+        .tt-row:last-child {
+            border-bottom: none;
+        }
+
+        .tt-cell {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.6rem;
             font-size: 0.95rem;
-            line-height: 1.5;
-            color: var(--text-primary);
+            line-height: 1.45;
+        }
+
+        .tt-cell.bad {
+            color: var(--text-secondary);
             font-weight: 500;
         }
 
-        /* Mobile: Cartas apiladas */
-        @media (max-width: 768px) {
-            .card-row {
+        .tt-cell.good {
+            color: var(--text-primary);
+            font-weight: 700;
+        }
+
+        .tt-icon {
+            flex-shrink: 0;
+            font-weight: 800;
+            margin-top: 0.15rem;
+        }
+
+        .tt-cell.bad .tt-icon {
+            color: #ef4444;
+        }
+
+        .tt-cell.good .tt-icon {
+            color: #22c55e;
+        }
+
+        /* Mobile: cada fila apila bad sobre good */
+        @media (max-width: 640px) {
+            .transformation-table {
+                padding: 1.25rem;
+                border-radius: 16px;
+            }
+
+            .tt-header-pill {
+                font-size: 0.68rem;
+                padding: 0.7rem 0.5rem;
+            }
+
+            .tt-row {
                 grid-template-columns: 1fr;
-            }
-
-            .card-half {
-                border-right: none;
-                border-bottom: 1px solid var(--border-color);
-            }
-
-            .card-half.bad {
-                border-bottom: 2px solid #ef4444;
-            }
-
-            .card-half.good {
-                border-bottom: none;
+                gap: 0.85rem;
+                padding: 1rem 0;
             }
         }
 
@@ -781,12 +796,27 @@
             .hero-container {
                 display: grid;
                 grid-template-columns: 1.05fr 0.95fr;
-                gap: 3.5rem;
+                grid-template-areas:
+                    "top image"
+                    "social image"
+                    "cta image";
+                column-gap: 3.5rem;
+                row-gap: 1.5rem;
                 align-items: center;
             }
 
-            .hero-content {
+            .hero-top {
+                grid-area: top;
                 text-align: left;
+            }
+
+            .hero-cta {
+                grid-area: cta;
+                text-align: left;
+            }
+
+            .social-proof {
+                grid-area: social;
             }
 
             .social-proof,
@@ -809,9 +839,11 @@
             }
 
             .hero-image {
+                grid-area: image;
                 display: flex;
                 align-items: center;
                 justify-content: center;
+                align-self: center;
                 margin-top: 0;
             }
 
@@ -836,12 +868,43 @@
 
         /* ============ RESPONSIVE ============ */
         @media (max-width: 768px) {
+            .kicker {
+                font-size: 0.68rem;
+                font-weight: 700;
+                padding: 0.4rem 0.9rem;
+                margin-bottom: 1rem;
+                letter-spacing: 0.8px;
+                border-radius: 8px;
+            }
+
             h1 {
-                font-size: 1.5rem;
+                font-size: 2.6rem;
+                line-height: 1.05;
+                margin-bottom: 0.9rem;
             }
 
             h2 {
-                font-size: 1.05rem;
+                font-size: 1.1rem;
+            }
+
+            .social-proof {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                gap: 0.35rem;
+                margin: 1.1rem auto;
+                padding: 0.75rem 1rem;
+                border-left: none;
+                border-top: 2px solid var(--accent-green);
+            }
+
+            .stars {
+                padding-top: 0;
+                font-size: 1.1rem;
+            }
+
+            .social-proof-text {
+                font-size: 0.78rem;
             }
 
             .section-title {
@@ -872,7 +935,7 @@
         }
 
         /* ============ LAZY LOADING ANIMATIONS ============ */
-        .comparison-card,
+        .transformation-table,
         .bono-card,
         .feature-box {
             opacity: 0;
@@ -880,7 +943,7 @@
             transition: opacity 0.6s ease, transform 0.6s ease;
         }
 
-        .comparison-card.visible,
+        .transformation-table.visible,
         .bono-card.visible,
         .feature-box.visible {
             opacity: 1;
@@ -888,12 +951,22 @@
         }
 
         @media (max-width: 480px) {
+            .kicker {
+                font-size: 0.62rem;
+                padding: 0.3rem 0.75rem;
+                margin-bottom: 0.85rem;
+                letter-spacing: 0.6px;
+                border-radius: 8px;
+            }
+
             h1 {
-                font-size: 1.25rem;
+                font-size: 2.15rem;
+                line-height: 1.08;
+                margin-bottom: 0.8rem;
             }
 
             h2 {
-                font-size: 0.95rem;
+                font-size: 1rem;
             }
 
             .section-title {
@@ -928,19 +1001,11 @@
     <!-- HERO / HEADER -->
     <section class="hero">
         <div class="hero-container">
-            <div class="hero-content">
+            <div class="hero-top">
                 <div class="kicker">Para Mecánicos, Electricistas Automotrices y Aprendices</div>
                 <h1>CONVERTITE EN UN MAESTRO DEL DIAGNÓSTICO ELECTRÓNICO</h1>
                 <h2>Dominá el scanner, interpretá esquemas eléctricos y tomá trabajos mejor pagos</h2>
                 <p class="subtitle"><span class="subtitle-brand">SISTEMA DIAGNÓSTICO MAESTRO.</span> Del cambio de aceite básico a la inyección avanzada: Dominá el sistema completo sin adivinar fallas.</p>
-
-                <div class="social-proof">
-                    <span class="stars">★★★★★</span>
-                    <span>(4.9/5 estrellas) Más de 4.850 profesionales ya lo usan en sus talleres</span>
-                </div>
-
-                <button class="cta-button" onclick="handleCTAClick()">EMPEZAR HOY MISMO ↓</button>
-                <p class="cta-subtext">Descarga inmediata • Acceso permanente • Sin mensualidad</p>
             </div>
 
             <!-- Placeholder de imagen del producto: reemplazar por foto/mockup del kit cuando esté listo -->
@@ -951,67 +1016,46 @@
                     <span class="placeholder-hint">Reemplazar este bloque por la foto o render final del kit</span>
                 </div>
             </div>
+
+            <div class="social-proof">
+                <span class="stars">★★★★★</span>
+                <span class="social-proof-text"><strong class="rating-score">(4.9/5 estrellas)</strong> Más de 4.850 profesionales ya lo usan en sus talleres</span>
+            </div>
+
+            <div class="hero-cta">
+                <button class="cta-button" onclick="handleCTAClick()">EMPEZAR HOY MISMO ↓</button>
+                <p class="cta-subtext">Descarga inmediata • Acceso permanente • Sin mensualidad</p>
+            </div>
         </div>
     </section>
 
     <!-- MATRIZ DE CONTRASTE -->
     <section class="section">
         <h2 class="section-title">La Transformación Que Necesitás</h2>
-        <div class="comparison-grid">
-            <!-- Card 1 -->
-            <div class="comparison-card">
-                <div class="card-row">
-                    <div class="card-half bad">
-                        <div class="card-label">❌ Hoy te pasa esto</div>
-                        <p class="card-text">Rechazás autos modernos o los derivás a otro taller porque te da inseguridad usar el scanner.</p>
-                    </div>
-                    <div class="card-half good">
-                        <div class="card-label">✓ Con Diagnóstico Maestro</div>
-                        <p class="card-text">Usás la lógica detrás del scanner y configurás los parámetros con total autonomía técnica.</p>
-                    </div>
-                </div>
+        <div class="transformation-table">
+            <div class="tt-header">
+                <div class="tt-header-pill bad">❌ Hoy te pasa esto</div>
+                <div class="tt-header-pill good">✓ Con Diagnóstico Maestro</div>
             </div>
 
-            <!-- Card 2 -->
-            <div class="comparison-card">
-                <div class="card-row">
-                    <div class="card-half bad">
-                        <div class="card-label">❌ Hoy te pasa esto</div>
-                        <p class="card-text">Tenés pánico de conectar mal un pin o diagnosticar mal y terminar quemando una computadora (ECU) cara de un cliente.</p>
-                    </div>
-                    <div class="card-half good">
-                        <div class="card-label">✓ Con Diagnóstico Maestro</div>
-                        <p class="card-text">Medís con seguridad absoluta sabiendo interpretar los voltajes y las señales multiplexadas de forma segura.</p>
-                    </div>
-                </div>
+            <div class="tt-row">
+                <div class="tt-cell bad"><span class="tt-icon">✕</span>Rechazás autos modernos o los derivás a otro taller porque te da inseguridad usar el scanner.</div>
+                <div class="tt-cell good"><span class="tt-icon">✓</span>Usás la lógica detrás del scanner y configurás los parámetros con total autonomía técnica.</div>
             </div>
 
-            <!-- Card 3 -->
-            <div class="comparison-card">
-                <div class="card-row">
-                    <div class="card-half bad">
-                        <div class="card-label">❌ Hoy te pasa esto</div>
-                        <p class="card-text">Adivinás los defectos cambiando piezas al voleo, haciéndote perder tiempo, dinero de tu bolsillo y autoridad frente al cliente.</p>
-                    </div>
-                    <div class="card-half good">
-                        <div class="card-label">✓ Con Diagnóstico Maestro</div>
-                        <p class="card-text">Encontrás la falla real en minutos, aislando el problema de raíz antes de tocar o desarmar un solo cable.</p>
-                    </div>
-                </div>
+            <div class="tt-row">
+                <div class="tt-cell bad"><span class="tt-icon">✕</span>Tenés pánico de conectar mal un pin o diagnosticar mal y terminar quemando una computadora (ECU) cara de un cliente.</div>
+                <div class="tt-cell good"><span class="tt-icon">✓</span>Medís con seguridad absoluta sabiendo interpretar los voltajes y las señales multiplexadas de forma segura.</div>
             </div>
 
-            <!-- Card 4 -->
-            <div class="comparison-card">
-                <div class="card-row">
-                    <div class="card-half bad">
-                        <div class="card-label">❌ Hoy te pasa esto</div>
-                        <p class="card-text">Seguís estancado cobrando barato por reparaciones básicas de mecánica tradicional pesada.</p>
-                    </div>
-                    <div class="card-half good">
-                        <div class="card-label">✓ Con Diagnóstico Maestro</div>
-                        <p class="card-text">Saltás al escalón profesional más alto, cobrando caro por tu criterio y tu conocimiento de software.</p>
-                    </div>
-                </div>
+            <div class="tt-row">
+                <div class="tt-cell bad"><span class="tt-icon">✕</span>Adivinás los defectos cambiando piezas al voleo, haciéndote perder tiempo, dinero de tu bolsillo y autoridad frente al cliente.</div>
+                <div class="tt-cell good"><span class="tt-icon">✓</span>Encontrás la falla real en minutos, aislando el problema de raíz antes de tocar o desarmar un solo cable.</div>
+            </div>
+
+            <div class="tt-row">
+                <div class="tt-cell bad"><span class="tt-icon">✕</span>Seguís estancado cobrando barato por reparaciones básicas de mecánica tradicional pesada.</div>
+                <div class="tt-cell good"><span class="tt-icon">✓</span>Saltás al escalón profesional más alto, cobrando caro por tu criterio y tu conocimiento de software.</div>
             </div>
         </div>
     </section>
@@ -1328,7 +1372,7 @@
             }, { threshold: 0.1 });
 
             // Observa cards de comparación y bonos
-            document.querySelectorAll('.comparison-card, .bono-card, .feature-box').forEach((el) => {
+            document.querySelectorAll('.transformation-table, .bono-card, .feature-box').forEach((el) => {
                 observer.observe(el);
             });
         }
