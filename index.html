@@ -392,13 +392,79 @@
             margin-bottom: 1.5rem;
         }
 
+        .problem-content {
+            display: grid;
+            grid-template-columns: 1.3fr 1fr;
+            gap: 2.5rem;
+            align-items: center;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
         .problem-text {
             font-size: 1rem;
             line-height: 1.75;
             color: var(--text-secondary);
-            max-width: 800px;
-            margin: 0 auto;
             text-align: left;
+        }
+
+        .problem-text + .problem-text {
+            margin-top: 1rem;
+        }
+
+        .problem-callout {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            margin-top: 1.25rem;
+            padding: 1rem 1.25rem;
+            background: rgba(239, 68, 68, 0.12);
+            border: 1px solid rgba(239, 68, 68, 0.3);
+            border-radius: 10px;
+        }
+
+        .problem-callout-icon {
+            flex-shrink: 0;
+            font-size: 1.25rem;
+            line-height: 1;
+        }
+
+        .problem-callout p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: var(--text-primary);
+        }
+
+        .problem-callout strong {
+            color: #ef4444;
+        }
+
+        .problem-image-placeholder {
+            width: 100%;
+            aspect-ratio: 4 / 3;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 0.6rem;
+            text-align: center;
+            padding: 1.5rem;
+            border-radius: 16px;
+            border: 2px dashed rgba(239, 68, 68, 0.4);
+            background: linear-gradient(135deg, rgba(239, 68, 68, 0.1) 0%, rgba(239, 68, 68, 0.02) 100%);
+            color: var(--text-secondary);
+        }
+
+        @media (max-width: 768px) {
+            .problem-content {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .problem-image-placeholder {
+                max-width: 320px;
+                margin: 0 auto;
+            }
         }
 
         /* ============ LA SOLUCIÓN ============ */
@@ -1063,9 +1129,27 @@
     <!-- EL PROBLEMA REAL -->
     <section class="section problem-section">
         <h2 class="section-title">El Problema Real No Sos Vos, Es Cómo Te Enseñaron</h2>
-        <p class="problem-text">
-            Conectás el scanner, te tira un código de error genérico y no sabés por dónde empezar. Borrás la falla, el cliente se va, y a las dos cuadras se le vuelve a prender la luz del tablero. Acabás de regalarle tu autoridad técnica a otro colega que sí sabe qué cable medir. La mayoría aprende con videos aislados de YouTube que sirven para un modelo de auto específico, pero cuando te entra una marca diferente al taller, quedás expuesto. En la mecánica moderna, la inseguridad y la falta de planos se pagan caras: un diagnóstico errado te cuesta miles de dólares en componentes destruidos o clientes furiosos.
-        </p>
+        <div class="problem-content">
+            <div class="problem-copy">
+                <p class="problem-text">
+                    Conectás el scanner, te tira un código de error genérico y no sabés por dónde empezar. Borrás la falla, el cliente se va, y a las dos cuadras se le vuelve a prender la luz del tablero. Acabás de regalarle tu autoridad técnica a otro colega que sí sabe qué cable medir.
+                </p>
+                <p class="problem-text">
+                    La mayoría aprende con videos aislados de YouTube que sirven para un modelo de auto específico, pero cuando te entra una marca diferente al taller, quedás expuesto.
+                </p>
+                <div class="problem-callout">
+                    <span class="problem-callout-icon" aria-hidden="true">⚠️</span>
+                    <p>En la mecánica moderna, la inseguridad y la falta de planos se pagan caras: <strong>un diagnóstico errado te cuesta miles de dólares</strong> en componentes destruidos o clientes furiosos.</p>
+                </div>
+            </div>
+            <div class="problem-image">
+                <div class="problem-image-placeholder">
+                    <span class="placeholder-icon" aria-hidden="true">🚨</span>
+                    <span class="placeholder-label">Imagen del problema</span>
+                    <span class="placeholder-hint">Ej: mecánico frente al scanner con código de error genérico, o tablero con el check engine encendido</span>
+                </div>
+            </div>
+        </div>
     </section>
 
     <!-- LA SOLUCIÓN -->
